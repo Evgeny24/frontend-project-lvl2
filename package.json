@@ -1,13 +1,18 @@
 {
   "name": "frontend-project-lvl2",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Compares two configuration files and shows a difference.",
+  "main": "dist/genDiff.js",
   "bin": {
-    "gendiff": "./bin/gendiff.js"
+    "gendiff": "dist/bin/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +26,18 @@
   },
   "homepage": "https://github.com/Evgeny24/frontend-project-lvl2#readme",
   "dependencies": {
-    "commander": "^5.0.0"
+    "commander": "^5.0.0",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.19.1"
   }
 }
